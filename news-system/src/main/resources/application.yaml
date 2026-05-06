@@ -1,3 +1,20 @@
 spring:
   application:
     name: news-system
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/newssystem
+    username: postgres
+    password: sua_senha_aqui
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # cria/atualiza as tabelas automaticamente
+    show-sql: true      # mostra o SQL no console, útil pra debug
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
