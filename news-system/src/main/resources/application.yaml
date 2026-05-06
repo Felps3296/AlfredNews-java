@@ -3,14 +3,14 @@ spring:
     name: news-system
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/newssystem
-    username: postgres
-    password: sua_senha_aqui
+    url: jdbc:postgresql://localhost:5432/alfred_news
+    username: teste
+    password: teste
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update  # cria/atualiza as tabelas automaticamente
+      ddl-auto: none # cria/atualiza as tabelas automaticamente
     show-sql: true      # mostra o SQL no console, útil pra debug
     properties:
       hibernate:
