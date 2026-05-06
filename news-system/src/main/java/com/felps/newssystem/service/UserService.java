@@ -1,5 +1,6 @@
 package com.felps.newssystem.service;
 
+import com.felps.newssystem.dto.LoginRequest;
 import com.felps.newssystem.dto.UserRequestDTO;
 import com.felps.newssystem.dto.UserResponseDTO;
 import com.felps.newssystem.model.User;
@@ -24,7 +25,20 @@ public class UserService {
         user.setPassword(dto.getPassword()); // sem criptografia por enquanto
 
         User saved = userRepository.save(user);
-
         return new UserResponseDTO(saved.getId(), saved.getName(), saved.getEmail());
+    }
+
+    public UserResponseDTO login(LoginRequestDTO tdo){
+        User user = userRepository.findByEmail(dto.Email())
+                .orElsepublic UserResponseDTO login(LoginRequestDTO dto) {
+            User user = userRepository.findByEmail(dto.getEmail())
+                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+            if (!user.getPassword().equals(dto.getPassword())) {
+                throw new RuntimeException("Senha incorreta");
+            }
+
+            return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
+        }
     }
 }
