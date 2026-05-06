@@ -1,7 +1,9 @@
 package com.felps.newssystem.controller;
 
+import com.felps.newssystem.dto.LoginRequestDTO;
 import com.felps.newssystem.dto.UserRequestDTO;
 import com.felps.newssystem.dto.UserResponseDTO;
+import com.felps.newssystem.repository.UserRepository;
 import com.felps.newssystem.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +22,11 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> createUser(@RequestBody @Valid UserRequestDTO dto) {
         UserResponseDTO response = userService.createUser(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserRepository> login(@ResponseBody @Valid LoginRequestDTO dto){
+        UserResponseDTO response = userService.login(dto);
+        return ResponseEntity.ok(response);
     }
 }

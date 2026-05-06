@@ -1,6 +1,6 @@
 package com.felps.newssystem.service;
 
-import com.felps.newssystem.dto.LoginRequest;
+import com.felps.newssystem.dto.LoginRequestDTO;
 import com.felps.newssystem.dto.UserRequestDTO;
 import com.felps.newssystem.dto.UserResponseDTO;
 import com.felps.newssystem.model.User;
