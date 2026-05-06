@@ -28,17 +28,14 @@ public class UserService {
         return new UserResponseDTO(saved.getId(), saved.getName(), saved.getEmail());
     }
 
-    public UserResponseDTO login(LoginRequestDTO tdo){
-        User user = userRepository.findByEmail(dto.Email())
-                .orElsepublic UserResponseDTO login(LoginRequestDTO dto) {
-            User user = userRepository.findByEmail(dto.getEmail())
-                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    public UserResponseDTO login(LoginRequestDTO dto) {
+        User user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-            if (!user.getPassword().equals(dto.getPassword())) {
-                throw new RuntimeException("Senha incorreta");
-            }
-
-            return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
+        if (!user.getPassword().equals(dto.getPassword())) {
+            throw new RuntimeException("Senha incorreta");
         }
+
+        return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
     }
 }
