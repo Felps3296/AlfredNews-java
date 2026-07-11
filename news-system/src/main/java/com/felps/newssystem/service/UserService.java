@@ -4,6 +4,7 @@ import com.felps.newssystem.dto.LoginRequestDTO;
 import com.felps.newssystem.dto.UserRequestDTO;
 import com.felps.newssystem.dto.UserResponseDTO;
 import com.felps.newssystem.model.User;
+import com.felps.newssystem.repository.PreferenceRepository;
 import com.felps.newssystem.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PreferenceRepository preferenceRepository;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
         if (userRepository.existsByEmail(dto.getEmail())) {
